@@ -8,10 +8,7 @@ x each player shows the first card in hand
 x high card (Ace is the highest) wins
 x winner puts both cards at the bottom of hand
 x if the cards played are the same value, "War" is declared
-  - a second card is placed face down
-  - a third card is placed face up
-  - high card wins, winner places all six cards at the bottom of their hand
-  - if tie, repeat
+x WAR winner places all six cards at the bottom of their hand
 - winner is the player with all the cards
 */
 const assert = require('assert');
@@ -69,10 +66,6 @@ describe('War', function(){
       game.tableCards[1].value = 7;
       let playerTwoCardOriginal = game.tableCards[1];
       game.evaluateCards();
-      // console.log(game.playerOneCards[game.playerOneCards.length-2]);
-      // console.log(playerOneCardOriginal);
-      // console.log(game.playerOneCards[game.playerOneCards.length-1]);
-      // console.log(playerTwoCardOriginal);
       assert.equal(game.playerOneCards[game.playerOneCards.length-2] == playerOneCardOriginal, true);
       assert.equal(game.playerOneCards[game.playerOneCards.length-1] == playerTwoCardOriginal, true);
     });
@@ -84,5 +77,24 @@ describe('War', function(){
       game.evaluateCards();
       assert.equal(game.gameMessage, "This means WAR!");
     });
+    it('WAR winner places the cards at the bottom of their hand', function(){
+      game.startGame();
+      game.showCards();
+      game.tableCards[0].value = 10;
+      game.tableCards[1].value = 10;
+      game.evaluateCards();
+      assert.equal(Math.abs(game.playerOneCards.length - game.playerTwoCards.length)>=6,true);
+    });
+  });
+  describe('#warWinner()', function(){
+    it('Winner is determined when one player has all the cards', function(){
+      game.startGame();
+      game.showCards();
+      game.playerOneCards.push.apply(game.playerOneCards, game.playerTwoCards.splice(0));
+      game.tableCards[0].value = 'Jack';
+      game.tableCards[1].value = 10;
+      game.evaluateCards();
+      assert(game.warWinner());
+    })
   })
 });
