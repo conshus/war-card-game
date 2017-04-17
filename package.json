@@ -1,0 +1,22 @@
+{
+  "name": "war-card-game",
+  "version": "1.0.0",
+  "description": "Weekend 4 assignment",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conshus/war-card-game.git"
+  },
+  "author": "Dwane Hemmings",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/conshus/war-card-game/issues"
+  },
+  "homepage": "https://github.com/conshus/war-card-game#readme"
+}

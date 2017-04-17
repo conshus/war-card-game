@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Roboto|Anton|Vollkorn" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" href="css/reset.css" /> -->
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="CSS-Playing-Cards/cards.css" />
+  <title>War: What is it good for?</title>
+</head>
+<body>
+  <div class="playerOneHand"></div>
+  <div class="cardTable"></div>
+  <div class="playerTwoHand"></div>
+  <button id="playARound">Play A Round</button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+  <script id="playerOneHand-template" type="text/x-handlebars-template">
+    <h1>Player One Cards</h1>
+    <div class="playingCards fourColours rotateHand faceImages">
+      {{#each this}}
+      <div class="card rank-{{value}} {{suit}}">
+        <span class="rank">{{faceValue}}</span>
+        <span class="suit">&{{suit}};</span>
+      </div>
+      {{/each}}
+    </div>
+  </script>
+  <script id="cardTable-template" type="text/x-handlebars-template">
+    <div class="playingCards fourColours rotateHand faceImages">
+      {{#each this}}
+      <div class="card rank-{{value}} {{suit}}">
+        <span class="rank">{{faceValue}}</span>
+        <span class="suit">&{{suit}};</span>
+      </div>
+      {{/each}}
+    </div>
+  </script>
+  <script id="playerTwoHand-template" type="text/x-handlebars-template">
+    <h1>Player Two Cards</h1>
+    <div class="playingCards fourColours rotateHand faceImages">
+      {{#each this}}
+      <div class="card rank-{{value}} {{suit}}">
+        <span class="rank">{{faceValue}}</span>
+        <span class="suit">&{{suit}};</span>
+      </div>
+      {{/each}}
+    </div>
+  </script>
+
+  <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+  <!-- <script type="text/javascript" src="index.js" charset="utf-8"></script> -->
+</body>
+</html>
